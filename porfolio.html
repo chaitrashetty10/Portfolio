@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chaitra Shetty | Technical & AI Product Manager</title>
+<meta name="description" content="Enterprise platform leader turned AI product builder. Case studies of four GenAI prototypes.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme:dark;
+  --bg:#14130F; --surface:#1E1D19; --ink:#F3EFE6; --muted:#B5AFA3;
+  --line:#37342D; --accent:#E0957A; --soft:#2A2822;
+  --display:"Fraunces", Georgia, "Times New Roman", serif;
+  --body:"IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.6 var(--body)}
+a{color:var(--accent)}
+img{max-width:100%}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+section{padding:96px 0;border-top:1px solid var(--line)}
+h1,h2,h3{font-family:var(--display);font-weight:600;line-height:1.1;margin:0 0 16px}
+h1{font-size:clamp(2.5rem,6vw,4.6rem);letter-spacing:-.02em}
+h2{font-size:clamp(2rem,4vw,2.9rem);letter-spacing:-.01em}
+h3{font-size:1.35rem}
+p{margin:0 0 14px}
+.eyebrow{font-size:13px;font-weight:500;text-transform:uppercase;letter-spacing:.14em;color:var(--accent);margin:0 0 20px}
+.lead{font-size:1.15rem;color:var(--muted);max-width:60ch}
+.muted{color:var(--muted)}
+ul{padding-left:20px;margin:0}
+li{margin-bottom:8px}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.skip{position:absolute;left:-999px;top:0}
+.skip:focus{left:16px;top:12px;background:var(--ink);color:var(--bg);padding:8px 12px;z-index:100}
+
+/* Header */
+.top{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;justify-content:space-between;align-items:center;height:64px}
+.brand{font-family:var(--display);font-weight:600;color:var(--ink);text-decoration:none;font-size:1.1rem}
+.top nav a{color:var(--muted);text-decoration:none;margin-left:22px;font-size:15px}
+.top nav a:hover{color:var(--ink)}
+
+/* Buttons */
+.btn{display:inline-block;padding:13px 22px;border-radius:999px;border:1.5px solid var(--ink);color:var(--ink);background:transparent;text-decoration:none;font:500 16px var(--body);cursor:pointer;transition:transform .2s,background .2s,color .2s}
+.btn:hover{transform:translateY(-1px)}
+.btn.primary{background:var(--ink);color:var(--bg)}
+.btn.primary:hover{background:var(--accent);border-color:var(--accent)}
+.btn.small{padding:8px 16px;font-size:14px}
+.btn-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+
+/* Hero */
+.hero{padding:88px 0 72px;border-top:0}
+.hero-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:56px;align-items:end}
+.hero .title{font-size:1.2rem;color:var(--muted);margin:0 0 18px}
+.hero-metrics{display:grid;gap:14px}
+.metric{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px 22px}
+.metric strong{display:block;font-family:var(--display);font-size:2.3rem;font-weight:600;color:var(--accent);line-height:1}
+.metric span{font-size:15px;color:var(--muted)}
+
+/* Impact strip */
+.impact{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--surface)}
+.impact div{padding:28px 24px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+.impact div:nth-child(3n){border-right:0}
+.impact div:nth-last-child(-n+3){border-bottom:0}
+.impact b{display:block;font-family:var(--display);font-size:1.9rem;font-weight:600;line-height:1.1}
+.impact small{color:var(--muted);font-size:14px}
+
+/* Projects */
+#work{background:#0E0D0B;border-top:0}
+.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-top:48px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:32px;display:flex;flex-direction:column;transition:transform .25s,border-color .25s}
+.card:hover{transform:translateY(-4px);border-color:var(--accent)}
+.card .num{font-family:var(--display);color:var(--accent);font-size:1rem;margin-bottom:12px}
+.card h3{color:var(--ink)}
+.card .hook{color:var(--muted);margin-bottom:18px}
+.card .why{border-left:3px solid var(--accent);padding-left:14px;font-size:15px;color:var(--ink);margin-bottom:20px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}
+.chips span{font-size:13px;border:1px solid var(--line);border-radius:999px;padding:4px 11px;color:var(--muted)}
+.card .actions{margin-top:auto;display:flex;gap:12px;flex-wrap:wrap}
+#work .btn.primary:hover{background:var(--accent);border-color:var(--accent);color:#14130F}
+
+/* Product thinking */
+.flow{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:48px;position:relative}
+.step{padding:24px 22px 0 0}
+.step .idx{width:38px;height:38px;border-radius:50%;background:var(--ink);color:var(--bg);display:grid;place-items:center;font-weight:600;margin-bottom:18px}
+.step h3{font-size:1.2rem}
+.step p{font-size:15px;color:var(--muted)}
+
+/* Experience */
+.timeline{margin-top:48px;border-left:2px solid var(--line);padding-left:32px}
+.job{position:relative;margin-bottom:48px}
+.job::before{content:"";position:absolute;left:-41px;top:8px;width:14px;height:14px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 5px var(--bg)}
+.job .dates{font-size:14px;color:var(--accent);font-weight:500;margin-bottom:6px}
+.job .org{color:var(--muted);margin-bottom:16px}
+
+/* Skills */
+.skill-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:48px}
+.skill-box{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:26px}
+.skill-box h3{font-size:1.15rem}
+.tags{display:flex;flex-wrap:wrap;gap:8px}
+.tags span{background:var(--soft);border-radius:8px;padding:5px 10px;font-size:14px}
+.certs{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.certs span{border:1.5px solid var(--ink);border-radius:999px;padding:8px 16px;font-size:14px;font-weight:500}
+
+/* Contact */
+.contact-links{display:flex;flex-wrap:wrap;gap:14px;margin-top:32px}
+.contact-links a{font-size:18px}
+
+footer{padding:32px 0;border-top:1px solid var(--line);font-size:14px;color:var(--muted)}
+
+/* Case study dialog */
+dialog{border:0;border-radius:18px;padding:0;width:min(720px,calc(100% - 32px));max-height:88vh;background:var(--surface);color:var(--ink)}
+dialog::backdrop{background:rgba(28,27,25,.6)}
+.dlg-head{padding:32px 36px 16px;border-bottom:1px solid var(--line);position:sticky;top:0;background:var(--surface);display:flex;justify-content:space-between;gap:16px;align-items:flex-start}
+.dlg-body{padding:24px 36px 36px}
+.dlg-body h4{font-family:var(--body);font-size:13px;text-transform:uppercase;letter-spacing:.12em;color:var(--accent);margin:24px 0 8px}
+.dlg-body h4:first-child{margin-top:0}
+.close{background:none;border:1px solid var(--line);border-radius:50%;width:40px;height:40px;font-size:20px;cursor:pointer;color:var(--ink);flex-shrink:0}
+
+/* Motion */
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+
+/* Responsive */
+@media (max-width:860px){
+  .hero-grid{grid-template-columns:1fr}
+  .cards,.skill-grid{grid-template-columns:1fr}
+  .flow{grid-template-columns:1fr 1fr;row-gap:36px}
+  .impact{grid-template-columns:1fr 1fr}
+  .impact div:nth-child(3n){border-right:1px solid var(--line)}
+  .impact div:nth-child(2n){border-right:0}
+  .impact div:nth-last-child(-n+3){border-bottom:1px solid var(--line)}
+  .impact div:nth-last-child(-n+2){border-bottom:0}
+}
+@media (max-width:620px){
+  section{padding:72px 0}
+  .top nav a:not(.keep){display:none}
+  .flow{grid-template-columns:1fr}
+  .impact{grid-template-columns:1fr}
+  .impact div{border-right:0!important;border-bottom:1px solid var(--line)}
+  .impact div:last-child{border-bottom:0}
+  .dlg-head,.dlg-body{padding-left:22px;padding-right:22px}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{transition:none!important;animation:none!important}
+  .reveal{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top">Chaitra Shetty</a>
+    <nav aria-label="Primary">
+      <a href="#work">AI Prototypes</a>
+      <a href="#thinking">Approach</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a class="keep" href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">Technical · Platform · AI Product Manager</p>
+      <h1>Enterprise platform leader turned AI product builder.</h1>
+      <p class="title">Chaitra Shetty, Bangalore</p>
+      <p class="lead">I scope problems, build working AI prototypes, and hold them to enterprise-grade SLAs and KPIs.</p>
+      <div class="btn-row">
+        <a class="btn primary" href="#work">View AI prototypes</a>
+        <!-- TODO: put your CV PDF at this path (or update the link to your hosted file) -->
+        <a class="btn" href="cv/Chaitra_Shetty_CV.pdf" download>Download CV</a>
+      </div>
+    </div>
+    <div class="hero-metrics">
+      <div class="metric"><strong>85%</strong><span>Efficiency gain: task handling cut from 40 to 6 minutes</span></div>
+      <div class="metric"><strong>600+</strong><span>Enterprise cloud deployments supported</span></div>
+      <div class="metric"><strong>4</strong><span>GenAI prototypes shipped, each with its own case study</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- IMPACT STRIP -->
+<section style="padding:0 0 96px;border-top:0">
+  <div class="wrap">
+    <div class="impact reveal">
+      <div><b>30%</b><small>Fewer recurring requests after a Teradata process redesign</small></div>
+      <div><b>40%</b><small>Fewer escalations from standardized workflows and self-service docs</small></div>
+      <div><b>99.9%</b><small>Uptime SLA held on mission-critical enterprise applications</small></div>
+      <div><b>8</b><small>Engineers led across SRE, software engineering, and customer success</small></div>
+      <div><b>£85M</b><small>Global program portfolio, L3 platform delivery</small></div>
+      <div><b>~5.9M</b><small>Customer accounts served across the portfolio</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- AI PORTFOLIO -->
+<section id="work">
+  <div class="wrap">
+    <p class="eyebrow">AI Product Portfolio</p>
+    <h2>Four prototypes. Each one starts with a user problem.</h2>
+    <p class="lead">Built to test product judgment, not just model access. Open a case study to see the decisions behind each build.</p>
+
+    <div class="cards">
+      <article class="card reveal">
+        <p class="num">01</p>
+        <h3>PM Time Machine</h3>
+        <p class="hook">An interactive decision simulator for aspiring Product Managers.</p>
+        <p class="why"><strong>Why this matters for a PM:</strong> Users learn judgment by making decisions, not by reading frameworks. The scoring model made tradeoffs visible.</p>
+        <div class="chips"><span>Claude API</span><span>GitHub</span><span>Vercel</span></div>
+        <div class="actions">
+          <button class="btn primary small" data-case="timemachine">Case study</button>
+          <a class="btn small" href="https://pm-time-machine.vercel.app/" target="_blank" rel="noopener">Live ↗</a>
+        </div>
+      </article>
+
+      <article class="card reveal">
+        <p class="num">02</p>
+        <h3>BenchMarkAI</h3>
+        <p class="hook">A model evaluation and routing tool for choosing models by quality, cost, and latency.</p>
+        <p class="why"><strong>Why this matters for a PM:</strong> The best model is rarely the most capable one. A shared rubric makes the tradeoff explicit before a team commits.</p>
+        <div class="chips"><span>Claude</span><span>Google AI Studio</span><span>GitHub</span></div>
+        <div class="actions">
+          <button class="btn primary small" data-case="benchmark">Case study</button>
+          <a class="btn small" href="https://chaitrashetty10.github.io/Benchmark-ai/" target="_blank" rel="noopener">Live ↗</a>
+        </div>
+      </article>
+
+      <article class="card reveal">
+        <p class="num">03</p>
+        <h3>CloudOps Knowledge Copilot</h3>
+        <p class="hook">A retrieval-based assistant that helps operations teams find trusted answers fast.</p>
+        <p class="why"><strong>Why this matters for a PM:</strong> Answers are only useful if they are correct and cited. Measuring retrieval quality shaped how the knowledge base was chunked.</p>
+        <div class="chips"><span>Claude</span><span>Google AI Studio</span><span>ChromaDB</span><span>Vercel</span></div>
+        <div class="actions">
+          <button class="btn primary small" data-case="copilot">Case study</button>
+          <a class="btn small" href="https://datavora-5268.ai.studio/" target="_blank" rel="noopener">Live ↗</a>
+        </div>
+      </article>
+
+      <article class="card reveal">
+        <p class="num">04</p>
+        <h3>Synapse</h3>
+        <p class="hook">Turns meeting transcripts into action items and decisions, with human approval before anything is committed.</p>
+        <p class="why"><strong>Why this matters for a PM:</strong> AI should propose, people should commit. The approval checkpoint is a deliberate product choice to prevent false commitments.</p>
+        <div class="chips"><span>Claude</span><span>Google AI Studio</span><span>Lovable</span><span>Supabase</span></div>
+        <div class="actions">
+          <button class="btn primary small" data-case="synapse">Case study</button>
+          <a class="btn small" href="https://decision-to-execution-copilot.ai.studio/" target="_blank" rel="noopener">Live ↗</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCT THINKING -->
+<section id="thinking">
+  <div class="wrap">
+    <p class="eyebrow">How I work</p>
+    <h2>From ambiguous problem to measured outcome.</h2>
+    <p class="lead">Most of my enterprise work started as a vague complaint from a client or a support queue. This is the loop I use to turn it into a product decision.</p>
+    <div class="flow">
+      <div class="step reveal"><div class="idx">1</div><h3>Discover</h3><p>Talk to the people who feel the friction. Map the request volume, escalations, and where time is lost.</p></div>
+      <div class="step reveal"><div class="idx">2</div><h3>Scope</h3><p>Define the user, the smallest useful feature, and what is out of scope. Write the PRD before the build starts.</p></div>
+      <div class="step reveal"><div class="idx">3</div><h3>Prioritize</h3><p>Rank the backlog by user impact, SLA risk, and engineering cost. Protect the work that keeps commitments.</p></div>
+      <div class="step reveal"><div class="idx">4</div><h3>Measure</h3><p>Set the KPI before launch. Track it after. Use evaluation rubrics for AI features so quality is visible.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="wrap">
+    <p class="eyebrow">Experience</p>
+    <h2>Eighteen years on the platform side of product.</h2>
+    <p class="lead">Each role is framed around the product work behind it: discovery, prioritization, and measured outcomes.</p>
+
+    <div class="timeline">
+      <div class="job reveal">
+        <p class="dates">Jan 2015 to Present</p>
+        <h3>Senior Specialist / Technical Platform Leader</h3>
+        <p class="org">Teradata India Pvt Ltd</p>
+        <ul>
+          <li>Turned ambiguous operational problems into prioritized technical requirements across 600+ enterprise cloud deployments.</li>
+          <li>Redesigned the database allocation request workflow: 30% fewer recurring requests, 40% fewer escalations.</li>
+          <li>Cut task handling time from 40 minutes to 6 minutes, an 85% efficiency gain.</li>
+          <li>Led an 8-member delivery team and standardized sprint backlogs across SRE, engineering, and customer success.</li>
+          <li>Acted as product owner for platform query efficiency, diagnosing latency with SQL execution plan analysis.</li>
+        </ul>
+      </div>
+      <div class="job reveal">
+        <p class="dates">Jan 2008 to Jan 2015</p>
+        <h3>SQL Database Administrator &amp; Platform Specialist</h3>
+        <p class="org">Atos India Pvt Ltd</p>
+        <ul>
+          <li>Held a 99.9% uptime SLA on core mission-critical applications for UK and European clients.</li>
+          <li>Led requirement alignment for an onshore-to-offshore migration of a £8.1M UK program with zero service disruption.</li>
+          <li>Translated technical metrics into executive dashboards that tied delivery to client business goals.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="wrap">
+    <p class="eyebrow">Skills &amp; Certifications</p>
+    <h2>Tools I use to ship product.</h2>
+
+    <div class="skill-grid">
+      <div class="skill-box reveal">
+        <h3>Product Management</h3>
+        <div class="tags">
+          <span>Product discovery</span><span>PRD development</span><span>MVP scoping</span><span>Roadmap prioritization</span><span>User journey mapping</span><span>AARRR growth framework</span><span>SLA &amp; metric tracking</span>
+        </div>
+      </div>
+      <div class="skill-box reveal">
+        <h3>AI &amp; Generative AI</h3>
+        <div class="tags">
+          <span>LLM benchmarking</span><span>RAG architecture</span><span>AI agents</span><span>Prompt engineering</span><span>LLM-as-a-Judge</span><span>Evaluation rubrics</span><span>Cost-latency-quality tradeoffs</span><span>Guardrails</span><span>Human-in-the-loop</span>
+        </div>
+      </div>
+      <div class="skill-box reveal">
+        <h3>Platform &amp; Cloud</h3>
+        <div class="tags">
+          <span>AWS</span><span>Microsoft Azure</span><span>GCP</span><span>Teradata</span><span>SQL Server performance tuning</span><span>API integrations</span><span>Capacity scoping</span><span>Cloud architecture</span>
+        </div>
+      </div>
+      <div class="skill-box reveal">
+        <h3>Agile &amp; Delivery</h3>
+        <div class="tags">
+          <span>Scaled Agile (SAFe)</span><span>Scrum</span><span>Cross-functional alignment</span><span>Stakeholder management</span><span>Change management</span><span>Jira</span><span>Confluence</span><span>ServiceNow</span>
+        </div>
+      </div>
+    </div>
+
+    <h3 style="margin-top:48px;font-size:1.15rem">Certifications</h3>
+    <div class="certs">
+      <span>AWS Certified AI Practitioner</span>
+      <span>AWS Certified Solutions Architect – Associate</span>
+      <span>Certified SAFe 5 Agilist</span>
+      <span>Certified Scrum Master (CSM)</span>
+      <span>Microsoft Azure Certified</span>
+      <span>Teradata Certified Professional</span>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="wrap">
+    <p class="eyebrow">Contact</p>
+    <h2>Let's talk about your next platform or AI product.</h2>
+    <p class="lead">Open to Technical, Platform, and AI Product Manager roles in enterprise SaaS and cloud.</p>
+    <div class="contact-links">
+      <a href="mailto:chaitrashetty10@gmail.com">chaitrashetty10@gmail.com</a>
+      <a href="https://linkedin.com/in/chaitra-shetty972020" target="_blank" rel="noopener">LinkedIn</a>
+      <!-- TODO: add your phone number if you want it public -->
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">© 2026 Chaitra Shetty. Built with care, one prototype at a time.</div>
+</footer>
+
+<!-- CASE STUDY DIALOG -->
+<dialog id="case" aria-labelledby="case-title">
+  <div class="dlg-head">
+    <div>
+      <p class="eyebrow" style="margin-bottom:8px" id="case-kicker"></p>
+      <h2 id="case-title" style="font-size:1.9rem;margin:0"></h2>
+    </div>
+    <button class="close" aria-label="Close case study" id="close-btn">×</button>
+  </div>
+  <div class="dlg-body" id="case-body"></div>
+</dialog>
+
+<script>
+const cases = {
+  timemachine: {
+    kicker: "Case study 01",
+    title: "PM Time Machine",
+    sections: [
+      ["Problem", "Aspiring PMs read frameworks but rarely practice the decisions those frameworks describe."],
+      ["Users", "Aspiring Product Managers preparing for interviews or a first PM role."],
+      ["Approach", "A web-based decision simulator. Users make product calls, and each call is scored against a defined model."],
+      ["Key decisions", "Defined one target persona and a tight MVP feature set. Designed an interactive scoring model and an AARRR growth strategy before writing code."],
+      ["Results", "Usability testing with 5 users: 100% replay intent and 80% top-box score for ease of onboarding."],
+      ["Tools", "Claude API, GitHub, Vercel."]
+    ],
+    why: "Judgment is learned by making decisions and seeing consequences. The scoring model turns vague good sense into feedback."
+  },
+  benchmark: {
+    kicker: "Case study 02",
+    title: "BenchMarkAI",
+    sections: [
+      ["Problem", "Teams pick AI models on reputation or habit, not on a consistent comparison of quality, cost, and latency."],
+      ["Users", "Product and engineering teams choosing a model for a specific task."],
+      ["Approach", "A model evaluation and routing tool built around a shared scoring rubric and automated judging."],
+      ["Key decisions", "Five evaluation dimensions: product reasoning, technical precision, relevance, rigor, and instruction adherence. LLM-as-Judge workflows with bias mitigation, plus search grounding and citation validation to check answers."],
+      ["Results", "A repeatable rubric for comparing models across quality, cost, and latency, used to guide task-specific routing decisions."],
+      ["Tools", "Claude, Google AI Studio, GitHub."]
+    ],
+    why: "The cheapest or most capable model is rarely the right one. A written rubric makes the tradeoff visible and defensible."
+  },
+  copilot: {
+    kicker: "Case study 03",
+    title: "CloudOps Knowledge Copilot",
+    sections: [
+      ["Problem", "Operations knowledge is spread across documents, and finding a trusted answer under pressure takes too long."],
+      ["Users", "Operations and support engineers who need a correct, cited answer during an incident or request."],
+      ["Approach", "A retrieval-based assistant over an operational knowledge base, with defined personas, workflow requirements, and UX wireframes."],
+      ["Key decisions", "Measured retrieval precision, answer correctness, and citation accuracy. Used those results to iterate on vector chunking rather than tuning by feel."],
+      ["Results", "A structured evaluation loop that shows whether answers are retrieved, correct, and traceable to a source."],
+      ["Tools", "Claude, Google AI Studio, ChromaDB, Vercel."]
+    ],
+    why: "An assistant that sounds confident but cites the wrong source is a liability. Citation accuracy is a product requirement, not a nice-to-have."
+  },
+  synapse: {
+    kicker: "Case study 04",
+    title: "Synapse",
+    sections: [
+      ["Problem", "Meeting notes produce action items that nobody owns, and AI summaries can invent commitments nobody made."],
+      ["Users", "Meeting organizers and the team members who receive follow-up tasks."],
+      ["Approach", "A workflow engine that converts meeting transcripts into action items and key decisions, with human review before anything is saved."],
+      ["Key decisions", "A mandatory organizer approval checkpoint. The AI proposes, and a person confirms. This was a deliberate choice to prevent commitment hallucinations."],
+      ["Results", "A human-in-the-loop flow where only verified items reach the team's task list."],
+      ["Tools", "Claude, Google AI Studio, Lovable, Supabase."]
+    ],
+    why: "Speed matters less than trust. Adding a review step costs seconds and prevents a wrong commitment from becoming a missed deadline."
+  }
+};
+
+const dlg = document.getElementById("case");
+const body = document.getElementById("case-body");
+let lastTrigger = null;
+
+function esc(s){ return s.replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c])); }
+
+function openCase(key, trigger){
+  const p = cases[key];
+  if (!p) return;
+  lastTrigger = trigger;
+  document.getElementById("case-kicker").textContent = p.kicker;
+  document.getElementById("case-title").textContent = p.title;
+  body.innerHTML =
+    p.sections.map(([h, t]) => `<h4>${esc(h)}</h4><p>${esc(t)}</p>`).join("") +
+    `<h4>Why this matters for a PM</h4><p>${esc(p.why)}</p>` +
+    `<!-- TODO: add a Loom walkthrough or screenshot link here -->`;
+  dlg.showModal();
+  body.scrollTop = 0;
+}
+
+document.querySelectorAll("[data-case]").forEach(btn =>
+  btn.addEventListener("click", () => openCase(btn.dataset.case, btn))
+);
+document.getElementById("close-btn").addEventListener("click", () => dlg.close());
+dlg.addEventListener("click", e => { if (e.target === dlg) dlg.close(); });
+dlg.addEventListener("close", () => { if (lastTrigger) lastTrigger.focus(); });
+
+// Reveal on scroll (skipped when reduced motion is requested via CSS)
+const io = new IntersectionObserver(entries => {
+  entries.forEach(en => { if (en.isIntersecting) { en.target.classList.add("in"); io.unobserve(en.target); } });
+}, { threshold: 0.15 });
+document.querySelectorAll(".reveal").forEach(el => io.observe(el));
+</script>
+</body>
+</html>
